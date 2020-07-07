@@ -16,6 +16,25 @@ public class BaiTap4_Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        EmployeeCategory chuTich = new EmployeeCategory("Nguyễn Văn A", 1000,"Chủ Tịch");
+        EmployeeCategory giamDoc = new EmployeeCategory("Nguyễn Văn B", 800,"Giám Đốc");
+        EmployeeCategory phoGiamDoc = new EmployeeCategory("Nguyễn Văn C", 500,"Phó Giám Đốc");
+        EmployeeCategory truongPhong = new EmployeeCategory("Nguyễn Văn D", 300,"Trưởng Phòng");
+        EmployeeCategory phoTruongPhong = new EmployeeCategory("Nguyễn Văn E", 100,"Phó Trưởng Phòng");
+        
+        phoTruongPhong.setNext(truongPhong)
+                .setNext(phoGiamDoc)
+                .setNext(giamDoc)
+                .setNext(chuTich);
+
+        DuAn da = new DuAn("Build Super Super Computer",9999);                
+        
+        System.out.println(phoTruongPhong.getEmployeeCanApproved(da));
+        
+        System.out.println("\n");
+        
+        DuAn da1 = new DuAn("Build Super Super Computer",990);
+        System.out.println(phoTruongPhong.getEmployeeCanApproved(da1));
     }
     
 }
